@@ -114,7 +114,11 @@ export async function requireUserSession(event: H3Event) {
   // Expose access token
   if (config.exposeAccessToken) {
     const tokenKey = process.env.NUXT_OIDC_TOKEN_KEY as string
-    userSession.accessToken = await decryptToken(persistentSession.accessToken, tokenKey)
+    try{
+      userSession.accessToken = await decryptToken(persistentSession.accessToken, tokenKey)
+    }catch(e){
+      logger.warn('access token too large')
+    }
   }
 
   // Expiration check
