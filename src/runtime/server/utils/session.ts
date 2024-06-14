@@ -117,7 +117,7 @@ export async function requireUserSession(event: H3Event) {
     try{
       userSession.accessToken = await decryptToken(persistentSession.accessToken, tokenKey)
     }catch(e){
-      logger.warn('access token too large')
+      logger.warn('Access token too large')
     }
   }
 

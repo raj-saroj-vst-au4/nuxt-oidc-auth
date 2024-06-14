@@ -1,4 +1,4 @@
-import { createError } from 'h3'
+import { createError, sendRedirect } from 'h3'
 import { ofetch } from 'ofetch'
 import { snakeCase } from 'scule'
 import { normalizeURL } from 'ufo'
@@ -53,6 +53,7 @@ export async function refreshAccessToken(refreshToken: string, config: OidcProvi
       }
     )
   } catch (error: any) {
+    sendRedirect(event, '/hardlogout')
     logger.error(error?.data ?? error) // Log ofetch error data to console
     throw new Error('Failed to refresh token')
   }

@@ -1,4 +1,4 @@
-[![nuxt-oidc-auth-social-card](https://github.com/itpropro/nuxt-oidc-auth/assets/15030951/41173d50-afd4-4d1e-8cd0-e377d7f7effc)](https://nuxt.com/modules/nuxt-oidc-auth)
+[![raj-nuxt3-oidc-auth-social-card](https://github.com/itpropro/raj-nuxt3-oidc-auth/assets/15030951/41173d50-afd4-4d1e-8cd0-e377d7f7effc)](https://nuxt.com/modules/raj-nuxt3-oidc-auth)
 
 # Nuxt OIDC Auth
 
@@ -7,11 +7,13 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
+This is a custom version of raj-nuxt3-oidc-auth library in an attempt to solve keycloak issue as a workaround.
+
 Welcome to __Nuxt OIDC Auth__, a Nuxt module focusing on native OIDC (OpenID Connect) based authentication for Nuxt with a high level of customizability and security for SSR applications.
 This module doesn't use any external dependencies outside of the [unjs](https://unjs.io/) ecosystem except for token validation (the well known `jose` library for JWT interactions). 
 This module's session implementation is based on [nuxt-auth-utils](https://github.com/Atinux/nuxt-auth-utils).
 
-<!--- [Playground Demo](https://stackblitz.com/github/itpropro/nuxt-oidc-auth/tree/main/playground) -->
+<!--- [Playground Demo](https://stackblitz.com/github/itpropro/raj-nuxt3-oidc-auth/tree/main/playground) -->
 
 ## Features
 
@@ -30,18 +32,18 @@ If you are looking for a module that supports local authentication (and more) pr
 
 ## Quick Setup
 
-### 1. Add `nuxt-oidc-auth` dependency to your project
+### 1. Add `raj-nuxt3-oidc-auth` dependency to your project
 
 ```bash
-npx nuxi@latest module add nuxt-oidc-auth
+npx nuxi@latest module add raj-nuxt3-oidc-auth
 ```
 
-### 2. Add `nuxt-oidc-auth` to the `modules` section of `nuxt.config.ts`
+### 2. Add `raj-nuxt3-oidc-auth` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt-oidc-auth'
+    'raj-nuxt3-oidc-auth'
   ]
 })
 ```
@@ -51,7 +53,7 @@ export default defineNuxtConfig({
 Nuxt OIDC Auth uses three different secrets to encrypt the user session, the individual auth sessions and the persistent server side token store. You can set them using environment variables or in the `.env` file.
 All of the secrets are auto generated if not set, but should be set manually in production. This is especially important for the session storage, as it won't be accessible anymore if the secret changes, for example, after a server restart.
 
-If you need a reference how you could generate random secrets or keys, we created an example as a starting point: [Secrets generation example](https://stackblitz.com/edit/nuxt-oidc-auth-keygen?file=index.js)
+If you need a reference how you could generate random secrets or keys, we created an example as a starting point: [Secrets generation example](https://stackblitz.com/edit/raj-nuxt3-oidc-auth-keygen?file=index.js)
 
 - NUXT_OIDC_SESSION_SECRET (random string): This should be a at least 48 characters random string. It is used to encrypt the user session.
 - NUXT_OIDC_TOKEN_KEY (random key): This needs to be a random cryptographic AES key in base64. Used to encrypt the server side token store. You can generate a key in JS with `await subtle.exportKey('raw', await subtle.generateKey({ name: 'AES-GCM', length: 256, }, true, ['encrypt', 'decrypt']))`. You just have to encode it to base64 afterwards.
@@ -493,14 +495,14 @@ pnpm run lint
 This module is still in development, feedback and contributions are welcome! Use at your own risk.
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-oidc-auth?labelColor=18181B&color=28CF8D
-[npm-version-href]: https://npmjs.com/package/nuxt-oidc-auth
+[npm-version-src]: https://img.shields.io/npm/v/raj-nuxt3-oidc-auth?labelColor=18181B&color=28CF8D
+[npm-version-href]: https://npmjs.com/package/raj-nuxt3-oidc-auth
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-oidc-auth?labelColor=18181B&color=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/nuxt-oidc-auth
+[npm-downloads-src]: https://img.shields.io/npm/dm/raj-nuxt3-oidc-auth?labelColor=18181B&color=28CF8D
+[npm-downloads-href]: https://npmjs.com/package/raj-nuxt3-oidc-auth
 
-[license-src]: https://img.shields.io/npm/l/nuxt-oidc-auth?labelColor=18181B&color=28CF8D
-[license-href]: https://npmjs.com/package/nuxt-oidc-auth
+[license-src]: https://img.shields.io/npm/l/raj-nuxt3-oidc-auth?labelColor=18181B&color=28CF8D
+[license-href]: https://npmjs.com/package/raj-nuxt3-oidc-auth
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
